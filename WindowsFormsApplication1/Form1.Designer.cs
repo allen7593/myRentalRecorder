@@ -43,7 +43,8 @@
             this.clearBut = new System.Windows.Forms.Button();
             this.canShowBut = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.totleAmoutBox = new System.Windows.Forms.TextBox();
+            this.totalAmoutBox = new System.Windows.Forms.TextBox();
+            this.updateBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numWeekCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountCount)).BeginInit();
             this.SuspendLayout();
@@ -121,11 +122,12 @@
             this.amountCount.Name = "amountCount";
             this.amountCount.Size = new System.Drawing.Size(160, 21);
             this.amountCount.TabIndex = 8;
+            this.amountCount.ValueChanged += new System.EventHandler(this.amountCount_ValueChanged);
             // 
             // Reference
             // 
             this.Reference.AutoSize = true;
-            this.Reference.Location = new System.Drawing.Point(317, 131);
+            this.Reference.Location = new System.Drawing.Point(317, 137);
             this.Reference.Name = "Reference";
             this.Reference.Size = new System.Drawing.Size(89, 12);
             this.Reference.TabIndex = 9;
@@ -140,7 +142,7 @@
             // 
             // submitBut
             // 
-            this.submitBut.Location = new System.Drawing.Point(430, 161);
+            this.submitBut.Location = new System.Drawing.Point(345, 161);
             this.submitBut.Name = "submitBut";
             this.submitBut.Size = new System.Drawing.Size(75, 23);
             this.submitBut.TabIndex = 11;
@@ -155,6 +157,7 @@
             this.clearBut.TabIndex = 12;
             this.clearBut.Text = "Clear";
             this.clearBut.UseVisualStyleBackColor = true;
+            this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
             // 
             // canShowBut
             // 
@@ -171,22 +174,33 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(319, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 12);
+            this.label2.Size = new System.Drawing.Size(95, 12);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Total Amount:";
+            this.label2.Text = "Total Amount: $";
             // 
-            // totleAmoutBox
+            // totalAmoutBox
             // 
-            this.totleAmoutBox.Location = new System.Drawing.Point(405, 107);
-            this.totleAmoutBox.Name = "totleAmoutBox";
-            this.totleAmoutBox.ReadOnly = true;
-            this.totleAmoutBox.Size = new System.Drawing.Size(185, 21);
-            this.totleAmoutBox.TabIndex = 15;
+            this.totalAmoutBox.Location = new System.Drawing.Point(416, 107);
+            this.totalAmoutBox.Name = "totalAmoutBox";
+            this.totalAmoutBox.ReadOnly = true;
+            this.totalAmoutBox.Size = new System.Drawing.Size(174, 21);
+            this.totalAmoutBox.TabIndex = 15;
+            // 
+            // updateBut
+            // 
+            this.updateBut.Location = new System.Drawing.Point(430, 161);
+            this.updateBut.Name = "updateBut";
+            this.updateBut.Size = new System.Drawing.Size(75, 23);
+            this.updateBut.TabIndex = 16;
+            this.updateBut.Text = "Update";
+            this.updateBut.UseVisualStyleBackColor = true;
+            this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(610, 261);
-            this.Controls.Add(this.totleAmoutBox);
+            this.Controls.Add(this.updateBut);
+            this.Controls.Add(this.totalAmoutBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.canShowBut);
             this.Controls.Add(this.clearBut);
@@ -228,7 +242,8 @@
         private System.Windows.Forms.Button clearBut;
         private System.Windows.Forms.Button canShowBut;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox totleAmoutBox;
+        private System.Windows.Forms.TextBox totalAmoutBox;
+        private System.Windows.Forms.Button updateBut;
     }
 }
 
