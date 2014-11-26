@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.startDate = new System.Windows.Forms.Label();
             this.startDateCan = new System.Windows.Forms.MonthCalendar();
             this.startDateBox = new System.Windows.Forms.TextBox();
@@ -45,10 +46,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.totalAmoutBox = new System.Windows.Forms.TextBox();
             this.updateBut = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.logview = new System.Windows.Forms.DataGridView();
+            this.refreshBut = new System.Windows.Forms.Button();
+            this.logDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.logDataSet = new WindowsFormsApplication1.logDataSet();
+            this.logDataTableAdapter = new WindowsFormsApplication1.logDataSetTableAdapters.logDataTableAdapter();
+            this.rNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numOfWeeksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numWeekCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // startDate
@@ -150,6 +163,7 @@
             this.submitBut.TabIndex = 11;
             this.submitBut.Text = "Submit";
             this.submitBut.UseVisualStyleBackColor = true;
+            this.submitBut.Click += new System.EventHandler(this.submitBut_Click);
             // 
             // clearBut
             // 
@@ -198,19 +212,90 @@
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
             // 
-            // dataGridView1
+            // logview
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 226);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(565, 292);
-            this.dataGridView1.TabIndex = 17;
+            this.logview.AutoGenerateColumns = false;
+            this.logview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.logview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rNumberDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.endDateDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.totalAmountDataGridViewTextBoxColumn,
+            this.numOfWeeksDataGridViewTextBoxColumn});
+            this.logview.DataSource = this.logDataBindingSource;
+            this.logview.Location = new System.Drawing.Point(25, 226);
+            this.logview.Name = "logview";
+            this.logview.RowTemplate.Height = 23;
+            this.logview.Size = new System.Drawing.Size(565, 292);
+            this.logview.TabIndex = 17;
+            //this.logview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.logview_CellContentClick);
+            // 
+            // refreshBut
+            // 
+            this.refreshBut.Location = new System.Drawing.Point(25, 191);
+            this.refreshBut.Name = "refreshBut";
+            this.refreshBut.Size = new System.Drawing.Size(62, 23);
+            this.refreshBut.TabIndex = 18;
+            this.refreshBut.Text = "Refresh";
+            this.refreshBut.UseVisualStyleBackColor = true;
+            this.refreshBut.Click += new System.EventHandler(this.refreshBut_Click);
+            // 
+            // logDataBindingSource
+            // 
+            this.logDataBindingSource.DataMember = "logData";
+            this.logDataBindingSource.DataSource = this.logDataSet;
+            // 
+            // logDataSet
+            // 
+            this.logDataSet.DataSetName = "logDataSet";
+            this.logDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // logDataTableAdapter
+            // 
+            this.logDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // rNumberDataGridViewTextBoxColumn
+            // 
+            this.rNumberDataGridViewTextBoxColumn.DataPropertyName = "RNumber";
+            this.rNumberDataGridViewTextBoxColumn.HeaderText = "Reference NO.";
+            this.rNumberDataGridViewTextBoxColumn.Name = "rNumberDataGridViewTextBoxColumn";
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.HeaderText = "End Date";
+            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount pre week";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            // 
+            // totalAmountDataGridViewTextBoxColumn
+            // 
+            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
+            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Total Amount";
+            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            // 
+            // numOfWeeksDataGridViewTextBoxColumn
+            // 
+            this.numOfWeeksDataGridViewTextBoxColumn.DataPropertyName = "NumOfWeeks";
+            this.numOfWeeksDataGridViewTextBoxColumn.HeaderText = "NO. Of Weeks";
+            this.numOfWeeksDataGridViewTextBoxColumn.Name = "numOfWeeksDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(604, 530);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.refreshBut);
+            this.Controls.Add(this.logview);
             this.Controls.Add(this.updateBut);
             this.Controls.Add(this.totalAmoutBox);
             this.Controls.Add(this.label2);
@@ -229,9 +314,12 @@
             this.Controls.Add(this.startDateCan);
             this.Controls.Add(this.startDate);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numWeekCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,7 +345,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox totalAmoutBox;
         private System.Windows.Forms.Button updateBut;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView logview;
+        private logDataSet logDataSet;
+        private System.Windows.Forms.BindingSource logDataBindingSource;
+        private logDataSetTableAdapters.logDataTableAdapter logDataTableAdapter;
+        private System.Windows.Forms.Button refreshBut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numOfWeeksDataGridViewTextBoxColumn;
     }
 }
 
