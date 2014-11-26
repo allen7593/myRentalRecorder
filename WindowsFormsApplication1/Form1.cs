@@ -15,24 +15,24 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-            canVisible = false;                     //set canlander not visible
-            startDateCan.Visible = false;           //set canlander not visible
-            startDateCan.SetDate(DateTime.Today);   //set default as today's date
-            startDateTime = DateTime.Today;         //set start date default as today
-            startDateBox.Text = DateTime.Today.ToShortDateString();
-            double numOfWeeks = Convert.ToDouble(numWeekCount.Value)*7;
-            amountCount.Maximum = 1000;
-            totalAmoutBox.Text = "0";
-            endDateBox.Text = DateTime.Today.AddDays(numOfWeeks).ToShortDateString();
-            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();
+            canVisible = false;                                                                         //set canlander not visible
+            startDateCan.Visible = false;                                                               //set canlander not visible
+            startDateCan.SetDate(DateTime.Today);                                                       //set default as today's date
+            startDateTime = DateTime.Today;                                                             //set start date default as today
+            startDateBox.Text = DateTime.Today.ToShortDateString();                                     //set start date box defult as today
+            double numOfWeeks = Convert.ToDouble(numWeekCount.Value)*7;                                 //caculate number of days need to add
+            amountCount.Maximum = 1000;                                                                 //set amount maximum as 1000
+            totalAmoutBox.Text = "0";                                                                   //set total amount default as 0
+            endDateBox.Text = DateTime.Today.AddDays(numOfWeeks).ToShortDateString();                   //caculate end date
+            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();   //calculate total amount
 
 
         }
 
         private void startDateCan_DateChanged(object sender, DateRangeEventArgs e)
         {                
-            startDateTime = e.End;
-            startDateBox.Text = startDateTime.ToShortDateString();
+            startDateTime = e.End;                                                                      //get selected date
+            startDateBox.Text = startDateTime.ToShortDateString();                                      //set start date to the selected date
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,27 +51,28 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void numWeekCount_ValueChanged(object sender, EventArgs e)
+        private void numWeekCount_ValueChanged(object sender, EventArgs e)              
         {
-            double numOfWeeks = Convert.ToDouble(numWeekCount.Value)*7;
-            endDateBox.Text = startDateTime.AddDays(numOfWeeks).ToShortDateString();
-            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();
+            double numOfWeeks = Convert.ToDouble(numWeekCount.Value)*7;                                 //caculate number of days need to add
+            endDateBox.Text = startDateTime.AddDays(numOfWeeks).ToShortDateString();                    //add days
+            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();   //caculate total amount
         }
 
         private void amountCount_ValueChanged(object sender, EventArgs e)
         {
-            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();
+            totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();   //calculate total amount
         }
 
-        private void updateBut_Click(object sender, EventArgs e)
+        private void updateBut_Click(object sender, EventArgs e)                                        //update everything
         {
             double numOfWeeks = Convert.ToDouble(numWeekCount.Value) * 7;
             endDateBox.Text = startDateTime.AddDays(numOfWeeks).ToShortDateString();
             totalAmoutBox.Text = Convert.ToDouble(numWeekCount.Value * amountCount.Value).ToString();
         }
 
-        private void clearBut_Click(object sender, EventArgs e)
+        private void clearBut_Click(object sender, EventArgs e)                                         //clear everything
         {
+            startDateTime = DateTime.Today;
             numWeekCount.Value = 0;
             amountCount.Value = 0;
             updateBut_Click(sender, e);
