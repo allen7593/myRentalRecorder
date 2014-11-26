@@ -45,8 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.totalAmoutBox = new System.Windows.Forms.TextBox();
             this.updateBut = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numWeekCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // startDate
@@ -161,9 +163,9 @@
             // 
             // canShowBut
             // 
-            this.canShowBut.Location = new System.Drawing.Point(12, 34);
+            this.canShowBut.Location = new System.Drawing.Point(25, 34);
             this.canShowBut.Name = "canShowBut";
-            this.canShowBut.Size = new System.Drawing.Size(75, 23);
+            this.canShowBut.Size = new System.Drawing.Size(62, 23);
             this.canShowBut.TabIndex = 13;
             this.canShowBut.Text = "Show Can";
             this.canShowBut.UseVisualStyleBackColor = true;
@@ -196,9 +198,19 @@
             this.updateBut.UseVisualStyleBackColor = true;
             this.updateBut.Click += new System.EventHandler(this.updateBut_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(25, 226);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(565, 292);
+            this.dataGridView1.TabIndex = 17;
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(610, 261);
+            this.ClientSize = new System.Drawing.Size(604, 530);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.updateBut);
             this.Controls.Add(this.totalAmoutBox);
             this.Controls.Add(this.label2);
@@ -219,6 +231,7 @@
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numWeekCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +257,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox totalAmoutBox;
         private System.Windows.Forms.Button updateBut;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

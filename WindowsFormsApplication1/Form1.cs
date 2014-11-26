@@ -37,13 +37,13 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (canVisible == true)             //if it is not shown, then show the calander
+            if (canVisible == true)                                                                     //if it is not shown, then show the calander
             {
                 startDateCan.Visible = false;
                 canVisible = false;
                 canShowBut.Text = "Show Can";
             }
-            else                               //if it is shown, then hide the calander
+            else                                                                                        //if it is shown, then hide the calander
             {
                 startDateCan.Visible = true;
                 canVisible = true;
